@@ -10,6 +10,15 @@ export function generateImage(canvas: HTMLCanvasElement) {
     const imageData = ctx.createImageData(imgWidth, imgHeight);
 
     // Your code goes here:
+    for (let y = 0; y < imgHeight; y += 1) {
+        for (let x = 0; x < imgWidth; x += 1) {
+            let i = (y * imgWidth + x) * 4;
+            imageDataArray[i + 0] = Math.floor(x * 256/imgWidth); // R
+            imageDataArray[i + 1] = Math.floor(y * 256/imgHeight); // G
+            imageDataArray[i + 2] = 0; // B
+            imageDataArray[i + 3] = 255; // A
+        }
+    }
 
     // This is for your reference, to see how the imageData values are put in.
     for (let i = 0; i < imageData.data.length; i += 4) {

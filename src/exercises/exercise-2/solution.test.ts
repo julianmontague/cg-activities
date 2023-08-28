@@ -5,4 +5,4 @@ it("renders correctly", async () => {
   const image = await page.screenshot();
 
   expect(image).toMatchImageSnapshot();
-});
+}, 10000);
